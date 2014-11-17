@@ -21,9 +21,9 @@
  * 4 and 5.
  * so the function should return 11.
  * The function should return -1 if the number of intersecting pairs 
- * exceeds 10,000,000.function 
+ * exceeds 10,000,000.
  */
-solution($A) {
+function solution($A) {
   $result = 0;
   $len = count($A);
     
