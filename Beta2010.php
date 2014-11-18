@@ -31,25 +31,25 @@ function solution($A) {
   $ends   = array_fill(0, $len, 0);
     
   for ($i = 0; $i < $len; $i++) {
-    $diskStart = $i - $A[$i];
-    $diskEnd   = $i + $A[$i];
+    $discStart = $i - $A[$i];
+    $discEnd   = $i + $A[$i];
       
-    $starts[max($diskStart,        0)]++;
-    $ends  [min($diskEnd  , $len - 1)]++;
+    $starts[max($discStart,        0)]++;
+    $ends  [min($discEnd  , $len - 1)]++;
   }
     
-  $currentDisks = 0;
+  $currentDiscs = 0;
   for ($i = 0; $i < $len; $i++) {
     if ($starts[$i] > 0){
-      $intersectionsWithCurrentDiscs    = $starts[$i] * $currentDisks;
+      $intersectionsWithCurrentDiscs    = $starts[$i] * $currentDiscs;
       $intersectionsWithinStartingDiscs = $starts[$i] * ($starts[$i] - 1) / 2;
       $result += $intersectionsWithCurrentDiscs + $intersectionsWithinStartingDiscs;
       if ($result > 10 * 1000000) {
         return -1;
       }
-      $currentDisks += $starts[$i];
+      $currentDiscs += $starts[$i];
     }
-    $currentDisks -= $ends[$i];
+    $currentDiscs -= $ends[$i];
   }
   return $result;
 }
